@@ -25,7 +25,7 @@ function recebeOrdenaPropriedade (){
         if(entradaUsuario.trim() === ''){
             console.log(chalk.redBright("\nInsira uma propriedade válida (ou SAIR para encerrar)!\n"));        
         } else if (entradaUsuario.toUpperCase() != "SAIR"){
-            listaPropriedades.adicionarElemento(entradaUsuario);
+            listaPropriedades.adicionarElemento(entradaUsuario.toLowerCase());
         } else {
             break
         };
