@@ -23,7 +23,7 @@ function recebeOrdenaPropriedade (){
         const entradaUsuario = rl.question(chalk.green("Insira as propriedades desejadas (ou SAIR para encerrar): "));
         
         if(entradaUsuario.trim() === ''){
-            console.log(chalk.redBright("\nInsira uma propriedade válida (ou SAIR para encerrar)!\n"));        
+            console.log(chalk.redBright("\nEntrada vazia, por favor insira uma propriedade válida (ou SAIR para encerrar)!\n"));        
         } else if (entradaUsuario.toUpperCase() != "SAIR"){
             listaPropriedades.adicionarElemento(entradaUsuario.toLowerCase());
         } else {
@@ -33,13 +33,15 @@ function recebeOrdenaPropriedade (){
     try{
         listaPropriedades.ordernarElementos();
         
-        console.log(chalk.magenta("Propriedades ordenadas de A-Z: \n---"));
-        
-        listaPropriedades.mostrarElementos().forEach(elemento => {
+        if(listaPropriedades.mostrarElementos().length == 0){
+            console.log(chalk.yellowBright("Lista vazia"))
+        }else {
+            console.log(chalk.magenta("Propriedades ordenadas de A-Z: \n---"));
+            listaPropriedades.mostrarElementos().forEach(elemento => {
             console.log(chalk.blueBright(elemento));
         });
-        
-        console.log(chalk.magenta("---"));
+            console.log(chalk.magenta("---"));
+        }
     }catch(error){
         console.error("Ocorreu um erro ao executar a função: ", error.message);
     };
