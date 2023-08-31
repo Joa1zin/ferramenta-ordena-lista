@@ -23,7 +23,7 @@ function recebeOrdenaPropriedade (){
         const entradaUsuario = rl.question(chalk.green("Insira as propriedades desejadas (ou SAIR para encerrar): "));
         
         if(entradaUsuario.trim() === ''){
-            console.log(chalk.redBright("\nEntrada vazia, por favor insira uma propriedade válida (ou SAIR para encerrar)!\n"));        
+            console.log(chalk.redBright("\nEntrada vazia, por favor insira uma propriedade válida!\n"));        
         } else if (entradaUsuario.toUpperCase() != "SAIR"){
             listaPropriedades.adicionarElemento(entradaUsuario.toLowerCase());
         } else {
